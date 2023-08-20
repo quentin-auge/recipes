@@ -1,0 +1,14 @@
+[project]
+name = "recipes"
+version = "0.1"
+description = "A backend fetching and serving recipes"
+dependencies = [
+    "requests",
+]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
