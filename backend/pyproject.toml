@@ -2,6 +2,7 @@
 name = "recipes"
 version = "0.1"
 description = "A backend fetching and serving recipes"
+requires-python = ">=3.10"
 dependencies = [
     "requests",
 ]
