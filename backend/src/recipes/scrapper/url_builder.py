@@ -1,8 +1,10 @@
 import urllib.parse
 
+from recipes.scrapper.constants import MARMITON_ROOT_URL
+
 
 class SearchUrlBuilder:
-    base_url = "https://www.marmiton.org/recettes/recherche.aspx"
+    base_url = MARMITON_ROOT_URL + "/recettes/recherche.aspx"
 
     def __init__(self):
         self.params = {}

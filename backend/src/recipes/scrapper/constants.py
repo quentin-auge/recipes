@@ -1,0 +1,1 @@
+MARMITON_ROOT_URL = "https://www.marmiton.org"
