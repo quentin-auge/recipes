@@ -30,6 +30,6 @@ jobs:
         run: |
           mypy src/
 
-      - name: Test
+      - name: Tests
         run: |
           pytest -vv --cov=recipes
