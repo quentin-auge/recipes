@@ -14,8 +14,10 @@ class SearchResultsParser:
     def _next_data(self) -> dict:
         soup = BeautifulSoup(self._html, "html.parser")
         next_data_tag = soup.find('script', id='__NEXT_DATA__', type='application/json')
-        next_data = next_data_tag.text
-        return json.loads(next_data)
+        if next_data_tag:
+            return json.loads(next_data_tag.text)
+        else:
+            return {}
 
     @cached_property
     def _search_results(self) -> dict:

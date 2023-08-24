@@ -1,4 +1,3 @@
-import tempfile
 from recipes.scrapper.url_cache import NoOpUrlCache, UrlCache
 
 import requests

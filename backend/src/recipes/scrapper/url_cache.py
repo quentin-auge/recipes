@@ -37,18 +37,22 @@ class OnDiskUrlCache(UrlCache):
     def __init__(self, cache_dir: str):
         self.cache_dir = Path(cache_dir)
 
-    def read(self, url: str) -> str:
+    def read(self, url: str) -> str | None:
         filepath = self._get_filepath(url)
+
+        content = None
 
         try:
             with open(filepath) as f:
-                return f.read()
+                content = f.read()
         except FileNotFoundError:
             return None
         except Exception as e:
             raise e
 
-    def write(self, url: str, content: str) -> bool:
+        return content
+
+    def write(self, url: str, content: str):
         os.makedirs(self.cache_dir, exist_ok=True)
         filepath = self._get_filepath(url)
         with open(filepath, "w") as f:
