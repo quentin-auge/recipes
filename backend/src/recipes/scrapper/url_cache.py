@@ -1,7 +1,8 @@
 import abc
-import hashlib
 import os
 from pathlib import Path
+
+import urllib.parse
 
 class UrlCache(abc.ABC):
     @abc.abstractmethod
@@ -54,6 +55,4 @@ class OnDiskUrlCache(UrlCache):
             f.write(content)
 
     def _get_filepath(self, url: str) -> Path:
-        md5_url = hashlib.md5(url.encode("utf-8")).hexdigest()
-        filename = f"{md5_url}.html"
-        return self.cache_dir / filename
+        return self.cache_dir / url.split("/")[-1]

@@ -6,7 +6,7 @@ from recipes.scrapper.search_results_parser import SearchResultsParser
 
 @pytest.fixture(scope="module")
 def html(data_folder) -> dict[int, str]:
-    with open(data_folder / f"tatin_endives_search_results_page_2.html") as f:
+    with open(data_folder / "recherche.aspx?aqt=tatin-endive&page=2") as f:
         return f.read()
 
 def test_parse_metadata(html):
