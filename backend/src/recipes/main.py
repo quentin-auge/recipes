@@ -1,14 +1,10 @@
-from recipes.scrapper.search_results_parser import SearchResultsParser
+import json
+from recipes.scrapper.scrapper import SearchResultsScrapper
 from recipes.scrapper.url_builder import SearchUrlBuilder
 from recipes.scrapper.url_cache import OnDiskUrlCache
-from recipes.scrapper.url_fetcher import UrlFetcher
 
 if __name__ == "__main__":
-    url_cache = OnDiskUrlCache(".cache")
-    url_fetcher = UrlFetcher(url_cache)
-
-    for i in range(1, 11):
-        url = SearchUrlBuilder().build(i)
-        html = url_fetcher.fetch(url)
-        parser = SearchResultsParser(html)
-        print(parser.parse_recipes())
+    url_builder = SearchUrlBuilder()
+    scrapper = SearchResultsScrapper(url_builder, url_cache = OnDiskUrlCache(".cache"))
+    random_recipes = scrapper.fetch_random_recipes(10)
+    print(json.dumps(random_recipes, indent=2))
