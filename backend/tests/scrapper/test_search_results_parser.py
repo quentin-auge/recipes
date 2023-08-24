@@ -21,11 +21,11 @@ def test_parse_recipe_with_image(html):
     parser = SearchResultsParser(html)
     recipes = parser.parse_recipes()
 
-    assert recipes[3] == {
-        "title": "Tarte tatin d'endives facile",
-        "url": "https://www.marmiton.org/recettes/recette_tarte-tatin-d-endives-facile_49138.aspx",
-        "image_url": "https://assets.afcdn.com/recipe/20110430/56659_origin.jpg",
-        "thumbnail_url": "https://assets.afcdn.com/recipe/20110430/56659_s96cx256cy192.jpg",
+    assert recipes[2] == {
+        "title": "Tatin d'endives caramélisées orange-miel",
+        "url": "https://www.marmiton.org/recettes/recette_tatin-d-endives-caramelisees-orange-miel_214980.aspx",
+        "image_url": "https://assets.afcdn.com/recipe/20201119/115747_origin.jpeg",
+        "thumbnail_url": "https://assets.afcdn.com/recipe/20201119/115747_s96cx1024cy768.jpeg",
     }
 
 def test_parse_recipe_without_image(html):

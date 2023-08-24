@@ -7,4 +7,4 @@ if __name__ == "__main__":
     url_builder = SearchUrlBuilder()
     scrapper = SearchResultsScrapper(url_builder, url_cache = OnDiskUrlCache(".cache"))
     random_recipes = scrapper.fetch_random_recipes(10)
-    print(json.dumps(random_recipes, indent=2))
+    print(json.dumps(random_recipes, indent=2, ensure_ascii=False))
