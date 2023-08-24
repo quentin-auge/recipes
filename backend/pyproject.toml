@@ -9,8 +9,15 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-test = ["pytest", "pytest-mock"]
+test = ["pytest", "pytest-mock", "pytest-cov"]
 
 [build-system]
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+addopts = "--cov=recipes"
+
+[tool.coverage.run]
+branch = true
+omit = ["__init__.py", "main.py"]
