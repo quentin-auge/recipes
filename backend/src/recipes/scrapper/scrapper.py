@@ -1,11 +1,11 @@
 from collections import defaultdict
 import random
+from typing import Any
 from recipes.scrapper.constants import MAX_SEARCH_RESULTS
 from recipes.scrapper.search_results_parser import SearchResultsParser
 from recipes.scrapper.url_builder import SearchUrlBuilder
 from recipes.scrapper.url_cache import UrlCache
 from recipes.scrapper.url_fetcher import UrlFetcher
-from traitlets import Any
 
 
 class SearchResultsScrapper:

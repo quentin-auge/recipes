@@ -9,7 +9,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-test = ["pytest"]
+test = ["pytest", "pytest-mock"]
 
 [build-system]
 requires = ["setuptools"]
