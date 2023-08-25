@@ -4,6 +4,7 @@ from pathlib import Path
 
 import urllib.parse
 
+
 class UrlCache(abc.ABC):
     @abc.abstractmethod
     def read(self, url: str) -> str | None:

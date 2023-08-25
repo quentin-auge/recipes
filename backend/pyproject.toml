@@ -11,7 +11,8 @@ dependencies = [
 [project.optional-dependencies]
 test = [
     "pytest", "pytest-mock", "pytest-cov",
-    "mypy", "types-requests", "types-beautifulsoup4"
+    "mypy", "types-requests", "types-beautifulsoup4",
+    "black",
 ]
 
 [build-system]
@@ -31,3 +32,7 @@ python_version = "3.10"
 [[tool.mypy.overrides]]
 module = "recipes"
 ignore_missing_imports = true
+
+[tool.black]
+line-length = 120
+target-version = ['py310']

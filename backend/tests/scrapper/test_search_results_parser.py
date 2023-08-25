@@ -9,6 +9,7 @@ def html(data_folder) -> dict[int, str]:
     with open(data_folder / "recherche.aspx?aqt=tatin-endive&page=2") as f:
         return f.read()
 
+
 def test_parse_metadata(html):
     parser = SearchResultsParser(html)
     assert parser.parse_metadata() == {
@@ -16,6 +17,7 @@ def test_parse_metadata(html):
         "nb_hits_per_page": 12,
         "nb_pages": 3,
     }
+
 
 def test_parse_recipe_with_image(html):
     parser = SearchResultsParser(html)
@@ -27,6 +29,7 @@ def test_parse_recipe_with_image(html):
         "image_url": "https://assets.afcdn.com/recipe/20201119/115747_origin.jpeg",
         "thumbnail_url": "https://assets.afcdn.com/recipe/20201119/115747_s96cx1024cy768.jpeg",
     }
+
 
 def test_parse_recipe_without_image(html):
     parser = SearchResultsParser(html)

@@ -3,8 +3,10 @@ import json
 from bs4 import BeautifulSoup
 from recipes.scrapper.constants import MARMITON_ROOT_URL
 
+
 def cached_property(f):
     return property(lru_cache(maxsize=1)(f))
+
 
 class SearchResultsParser:
     def __init__(self, html: str):
@@ -13,7 +15,7 @@ class SearchResultsParser:
     @cached_property
     def _next_data(self) -> dict:
         soup = BeautifulSoup(self._html, "html.parser")
-        next_data_tag = soup.find('script', id='__NEXT_DATA__', type='application/json')
+        next_data_tag = soup.find("script", id="__NEXT_DATA__", type="application/json")
         if next_data_tag:
             return json.loads(next_data_tag.text)
         else:
@@ -39,11 +41,13 @@ class SearchResultsParser:
             image_url = image_urls.get("originNoCrop")
             thumbnail_url = image_urls.get("thumb")
 
-            recipes.append({
-                "title": title,
-                "url": url,
-                "image_url": image_url,
-                "thumbnail_url": thumbnail_url,
-            })
+            recipes.append(
+                {
+                    "title": title,
+                    "url": url,
+                    "image_url": image_url,
+                    "thumbnail_url": thumbnail_url,
+                }
+            )
 
         return recipes

@@ -8,22 +8,22 @@ test_url, test_content = ("https://www.example1.com", "<example>content1</exampl
 
 @pytest.fixture
 def fetch_mock(mocker):
-     return mocker.patch.object(UrlFetcher, "_fetch", return_value=test_content)
+    return mocker.patch.object(UrlFetcher, "_fetch", return_value=test_content)
 
 
 def test_uncached_fetcher(fetch_mock):
-        url_fetcher = UrlFetcher(cache=None)
+    url_fetcher = UrlFetcher(cache=None)
 
-        url_cache = url_fetcher.url_cache
-        assert url_cache.__class__ is NoOpUrlCache
+    url_cache = url_fetcher.url_cache
+    assert url_cache.__class__ is NoOpUrlCache
 
-        assert url_fetcher.fetch(test_url) == test_content
-        fetch_mock.assert_called_once_with(test_url)  # Cache miss
+    assert url_fetcher.fetch(test_url) == test_content
+    fetch_mock.assert_called_once_with(test_url)  # Cache miss
 
-        fetch_mock.reset_mock()
+    fetch_mock.reset_mock()
 
-        assert url_fetcher.fetch(test_url) == test_content
-        fetch_mock.assert_called_once_with(test_url)  # Cache miss, again
+    assert url_fetcher.fetch(test_url) == test_content
+    fetch_mock.assert_called_once_with(test_url)  # Cache miss, again
 
 
 def test_cached_fetcher(fetch_mock):
