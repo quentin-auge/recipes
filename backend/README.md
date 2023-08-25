@@ -7,17 +7,32 @@ A backend fetching and serving recipes
 
 ## Install
 
+### Optional: install Task
+
+- Homebrew: `brew install go-task`
+- Other package managers: https://taskfile.dev/installation/
+
+List all tasks: `task -l`
+
+### Install
+
 ```bash
+task install
+# or
 pip install .
 ```
 
 #### Dev install
 ```bash
+task install-dev
+# or
 pip install -e '.[test]'
 ```
 
-## Run tests
+#### Run tests
 
 ```bash
+task test
+# or
 pytest -vv
 ```

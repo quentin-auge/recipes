@@ -3,7 +3,7 @@ from recipes.scrapper.search_results_parser import SearchResultsParser
 
 
 @pytest.fixture(scope="module")
-def html(data_folder) -> dict[int, str]:
+def html(data_folder):
     with open(data_folder / "recherche.aspx?aqt=tatin-endive&page=2") as f:
         return f.read()
 

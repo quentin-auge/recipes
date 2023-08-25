@@ -1,0 +1,49 @@
+version: "3"
+
+vars:
+  SOURCE_DIRS: "src/ tests/"
+
+tasks:
+  default:
+    cmds:
+      - task -l
+
+  install:
+    desc: "Install"
+    cmds:
+      - pip install -U pip
+      - pip install .
+
+  install-dev:
+    desc: "Develop install"
+    cmds:
+      - pip install -U pip
+      - pip install -e '.[test]'
+
+  test:
+    desc: "Run tests"
+    cmds:
+      - pytest -vv
+
+  typing:
+    desc: "Check typing"
+    cmds:
+      - mypy {{.SOURCE_DIRS}}
+
+  linting:
+    desc: "Check formatting"
+    cmds:
+      - black --check src/ tests/
+      - ruff {{.SOURCE_DIRS}}
+
+  check:
+    desc: "Check formatting + typing"
+    cmds:
+      - task: typing
+      - task: linting
+
+  format:
+    desc: "Format code"
+    cmds:
+      - ruff --fix {{.SOURCE_DIRS}}
+      - black {{.SOURCE_DIRS}}
