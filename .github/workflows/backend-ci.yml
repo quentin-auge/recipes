@@ -31,10 +31,13 @@ jobs:
         run: task install-dev
 
       - name: Run tests
+        if: always()
         run: task test
 
       - name: Check typing
+        if: always()
         run: task typing
 
       - name: Check formatting
+        if: always()
         run: task linting
