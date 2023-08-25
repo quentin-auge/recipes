@@ -25,6 +25,11 @@ tasks:
     cmds:
       - pytest -vv
 
+  test-cov:
+    desc: "Run tests with coverage"
+    cmds:
+      - pytest -vv --cov=recipes
+
   typing:
     desc: "Check typing"
     cmds:

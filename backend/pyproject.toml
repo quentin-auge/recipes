@@ -19,9 +19,6 @@ test = [
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
-[tool.pytest.ini_options]
-addopts = "--cov=recipes"
-
 [tool.coverage.run]
 branch = true
 omit = ["__init__.py", "main.py"]

@@ -32,7 +32,7 @@ jobs:
 
       - name: Run tests
         if: always()
-        run: task test
+        run: task test-cov
 
       - name: Check typing
         if: always()
