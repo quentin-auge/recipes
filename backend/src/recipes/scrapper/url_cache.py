@@ -2,8 +2,6 @@ import abc
 import os
 from pathlib import Path
 
-import urllib.parse
-
 
 class UrlCache(abc.ABC):
     @abc.abstractmethod

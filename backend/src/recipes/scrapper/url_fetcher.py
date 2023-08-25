@@ -1,6 +1,5 @@
-from recipes.scrapper.url_cache import NoOpUrlCache, UrlCache
-
 import requests
+from recipes.scrapper.url_cache import NoOpUrlCache, UrlCache
 
 
 class UrlFetcher:

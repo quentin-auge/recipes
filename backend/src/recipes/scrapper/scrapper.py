@@ -1,6 +1,7 @@
-from collections import defaultdict
 import random
+from collections import defaultdict
 from typing import Any
+
 from recipes.scrapper.constants import MAX_SEARCH_RESULTS
 from recipes.scrapper.search_results_parser import SearchResultsParser
 from recipes.scrapper.url_builder import SearchUrlBuilder

@@ -1,5 +1,3 @@
-import urllib.parse
-
 from recipes.scrapper.url_builder import SearchUrlBuilder
 
 

@@ -26,14 +26,18 @@ jobs:
           python -m pip install --upgrade pip
           pip install '.[test]'
 
-      - name: Black
+      - name: Tests
         run: |
-          black --check src/ tests/
+          pytest -vv --cov=recipes
 
       - name: Typing
         run: |
           mypy src/
 
-      - name: Tests
+      - name: Black
         run: |
-          pytest -vv --cov=recipes
+          black --check src/ tests/
+
+      - name: Ruff
+        run: |
+          ruff src/ tests/

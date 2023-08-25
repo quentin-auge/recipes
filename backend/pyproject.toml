@@ -12,7 +12,7 @@ dependencies = [
 test = [
     "pytest", "pytest-mock", "pytest-cov",
     "mypy", "types-requests", "types-beautifulsoup4",
-    "black",
+    "black", "ruff",
 ]
 
 [build-system]
@@ -36,3 +36,8 @@ ignore_missing_imports = true
 [tool.black]
 line-length = 120
 target-version = ['py310']
+
+[tool.ruff]
+select = ["E", "F", "I"]
+line-length = 120
+target-version = "py310"

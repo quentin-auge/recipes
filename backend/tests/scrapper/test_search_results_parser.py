@@ -1,5 +1,3 @@
-from pathlib import Path
-
 import pytest
 from recipes.scrapper.search_results_parser import SearchResultsParser
 

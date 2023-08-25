@@ -1,4 +1,5 @@
 import json
+
 from recipes.scrapper.scrapper import SearchResultsScrapper
 from recipes.scrapper.url_builder import SearchUrlBuilder
 from recipes.scrapper.url_cache import OnDiskUrlCache

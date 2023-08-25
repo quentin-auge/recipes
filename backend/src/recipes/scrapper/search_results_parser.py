@@ -1,5 +1,6 @@
-from functools import lru_cache
 import json
+from functools import lru_cache
+
 from bs4 import BeautifulSoup
 from recipes.scrapper.constants import MARMITON_ROOT_URL
 

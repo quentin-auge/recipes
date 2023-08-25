@@ -1,4 +1,5 @@
 from tempfile import TemporaryDirectory
+
 import pytest
 from recipes.scrapper.url_cache import NoOpUrlCache, OnDiskUrlCache
 from recipes.scrapper.url_fetcher import UrlFetcher
