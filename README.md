@@ -15,6 +15,23 @@ source .venv/bin/activate  # On Unix/macOS
 uv pip install -r requirements.txt
 ```
 
+## Ollama Setup
+
+1. Install Ollama:
+```bash
+brew install ollama
+```
+
+2. Start Ollama service:
+```bash
+brew services start ollama
+```
+
+3. Pull the Mistral model:
+```bash
+ollama pull mistral
+```
+
 ## Data
 
 The recipe dataset is stored in the `data/recipes.csv` file (not tracked in git due to size). The data comes from [Food.com Recipes and User Interactions](https://www.kaggle.com/datasets/shuyangli94/food-com-recipes-and-user-interactions?select=RAW_recipes.csv) on Kaggle.
@@ -26,6 +43,26 @@ python scripts/load_recipes.py
 
 This will create `data/recipes.db` with all recipes stored in the `recipes` table.
 
+## LLM Recipe Assistant
+
+The LLM-powered recipe assistant combines Ollama's Mistral model with our recipe database to provide intelligent recipe suggestions.
+
+To run the assistant:
+```bash
+python llm_recipe_client.py
+```
+
+Features:
+- Natural language ingredient extraction
+- Multi-ingredient search
+- AI-powered recipe suggestions
+- French language responses with original recipe names
+
+Example queries:
+- "I want to cook something with chicken and garlic"
+- "What can I make with tomatoes and basil?"
+- "Show me recipes with mushrooms"
+
 ## MCP Server
 
 The MCP server provides tools to search and interact with the recipe database.
@@ -36,11 +73,6 @@ You can run the server with the MCP Inspector for testing:
 ```bash
 mcp dev recipe_server.py
 ```
-
-This will open the MCP Inspector in your browser, where you can:
-- View available tools
-- Test the recipe search functionality
-- See the JSON responses
 
 ### Available Tools
 
